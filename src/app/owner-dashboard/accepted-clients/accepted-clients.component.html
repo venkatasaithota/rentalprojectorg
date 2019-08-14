@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <th>vendor name</th>
+            <th>house address</th>
+            <th>mail</th>
+            <th>phone number</th>
+            <th>excepted rate</th>
+            <th>status</th>
+        </thead>
+        <tr *ngFor="let client of currentUser">
+            <td>{{client.vendorname}}</td>
+            <td>{{client.address}}</td>
+            <td>{{client.mail}}</td>
+            <td>{{client.number}}</td>
+            <td>{{client.eRent}}</td>
+            <td>{{client.reqstatus}}</td>
+        </tr>
+    </table>
+    </div>

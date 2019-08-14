@@ -1,0 +1,21 @@
+<div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div>
+                <div class="conatiner">
+                        <form class="form" #ref=ngForm (ngSubmit)="submit(ref.value)">
+                            
+                            <div class="form-group">
+                                <label for="loginname" ><h4> enter otp to verify</h4></label>
+                                <input type="number" name="OTP" class="form-control" ngModel id="loginname" placeholder="enter otp from your phone" #ref1='ngModel' required>
+                                <label *ngIf='ref1.invalid && ref1.touched' class="text-danger">* this field is mandatory</label>
+                            </div>
+                            
+                                    
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>                        
+                        </form>        
+        </div>
+        <div class="col-sm-3"></div>
+        </div>
