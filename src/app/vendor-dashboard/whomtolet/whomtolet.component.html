@@ -1,5 +1,7 @@
-
-<input class="float-right" type="text" name="" id="" placeholder="search bar" [(ngModel)]='searchTerm'>
+<div class="form-group float-right">
+    <label>search by housetype || address || rent</label>
+    <input class="form-control" type="text" name="" id="" placeholder="search bar" [(ngModel)]='searchWord'>
+</div>
 <div class="table-responsive">
 <table class="table">
     <thead class="thead-dark">
@@ -13,7 +15,7 @@
         <th>status</th>
     </thead>
 
-<tr *ngFor="let house of list | find : searchTerm">
+<tr *ngFor="let house of list | find : searchWord">
                
             <td>{{house.housetype}}</td>
             <td>{{house.address}}</td>

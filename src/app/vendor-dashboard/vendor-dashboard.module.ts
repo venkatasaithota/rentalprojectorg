@@ -16,7 +16,7 @@ import {FormsModule} from '@angular/forms';
 import { SearchPipe } from './search.pipe';
 
 @NgModule({
-  declarations: [PaymentsComponent, NavpaymentsComponent,VendorDashboardComponent, DopaymentComponent, PaymenthistoryComponent, WhomtoletComponent, ProfileComponent, NavprofileComponent, ViewprofileComponent, EditprofileComponent, SearchPipe],
+  declarations: [PaymentsComponent, NavpaymentsComponent,VendorDashboardComponent, DopaymentComponent, PaymenthistoryComponent, WhomtoletComponent, ProfileComponent, NavprofileComponent, ViewprofileComponent, EditprofileComponent,SearchPipe],
   imports: [
     CommonModule,
     VendorDashboardRoutingModule,

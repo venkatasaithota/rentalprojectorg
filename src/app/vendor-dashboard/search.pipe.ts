@@ -12,11 +12,11 @@ export class SearchPipe implements PipeTransform {
     }
     else
     {
-      return houses.filter(searchedElement=>{
-        searchedElement.housetype.toLowerCase().indexOf(searchWord.toLocaleLowerCase())!=-1||
-        searchedElement.address.toLowerCase().indexOf(searchWord.toLocaleLowerCase())!=-1||
-        searchedElement.hrent.toLowerCase().indexOf(searchWord.toLocaleLowerCase())!=-1
-      })
+      return houses.filter(searchedElement=>
+        searchedElement.housetype.toLowerCase().indexOf(searchWord.toLowerCase())!=-1||
+        searchedElement.address.toLowerCase().indexOf(searchWord.toLowerCase())!=-1||
+        searchedElement.hrent.toString().indexOf(searchWord.toLowerCase())!=-1
+      );
     }
   }
 }

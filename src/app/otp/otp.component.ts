@@ -23,6 +23,7 @@ export class OtpComponent implements OnInit {
         else
         {
           alert(res['message'])
+          this.router.navigate(['/nav/forgetpassword'])
         }
       })
   }

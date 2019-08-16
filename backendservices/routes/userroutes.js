@@ -3,6 +3,7 @@ const exp=require('express');
 const initdb=require('../DBConfig').initdb
 const getdb=require('../DBConfig').getdb
 const secret='secret'
+const nodemailer=require('nodemailer')
 //importing jwt
 const jwt=require('jsonwebtoken')
 //intailizing dbo
@@ -21,11 +22,29 @@ userRoutes.post('/register',(req,res,next)=>{
             next(err)
         }
         else{
-            req.body.password=hashedPassword
+            
             console.log(req.body)
             var dbo=getdb();
             if(req.body.usertype==='owner')
-            {
+            {   
+                let transporter=nodemailer.
+                        createTransport({
+                            service:"gmail",
+                            auth:{
+                                user:"saithota433@gmail.com",
+                                pass:"venkat4321"
+                            }
+                        });
+                        let info= transporter.sendMail({
+                            //sender address
+                            from:'"login details" <saithota433@gmail.com>',
+                            //list of recivers
+                            to:req.body.mail,
+                            subject:"owner credentials",//subject line
+                            text:`username: ${req.body.name},password: ${req.body.password}`,//plain text body
+                            //html:"<b>hiii ra praveen</b>"//htmlbody
+                        });
+                req.body.password=hashedPassword
                 dbo.collection("owner").find({name:{$eq:req.body.name}}).toArray((err,dataArray)=>{
                     if (dataArray.length==0)
                     {
@@ -46,6 +65,24 @@ userRoutes.post('/register',(req,res,next)=>{
                
             }
             else{
+                let transporter=nodemailer.
+                        createTransport({
+                            service:"gmail",
+                            auth:{
+                                user:"saithota433@gmail.com",
+                                pass:"venkat4321"
+                            }
+                        });
+                        let info= transporter.sendMail({
+                            //sender address
+                            from:'"login details" <saithota433@gmail.com>',
+                            //list of recivers
+                            to:req.body.mail,
+                            subject:"vendor credentials",//subject line
+                            text:`username: ${req.body.name},password: ${req.body.password}`,//plain text body
+                            //html:"<b>hiii ra praveen</b>"//htmlbody
+                        });
+                req.body.password=hashedPassword
                 dbo.collection("vendor").find({name:{$eq:req.body.name}}).toArray((err,dataArray)=>{
                     if (dataArray.length==0)
                     {

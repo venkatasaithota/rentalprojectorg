@@ -14,7 +14,7 @@ export class WhomtoletComponent implements OnInit,OnChanges {
   check:boolean;
   list:any[]=[];
   currentUser:any[];
-  searchTerm:string;
+  searchWord:string;
   constructor(private http:HttpClient,private register:RegistredDataService) { }
   ngOnInit() {
     // this.status=this.s.status;
